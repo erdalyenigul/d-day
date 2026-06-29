@@ -51,7 +51,7 @@ onUnmounted(() => {
         <p class="eyebrow">D-DAY</p>
         <h1 id="page-title">We are choosing us again.</h1>
         <p class="lead">
-          Every hour since April 13 has carried us a little closer back to each other.
+          Every passing day has been quietly carrying us back to the love we chose again.
         </p>
       </div>
 
