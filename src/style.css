@@ -80,6 +80,14 @@ select {
   pointer-events: auto;
   will-change: transform, opacity;
   cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.bokeh-light:focus,
+.bokeh-light:active {
+  outline: none;
 }
 
 .bokeh-light::after {
@@ -94,12 +102,37 @@ select {
 
 .bokeh-light.is-born {
   animation-name: bokeh-birth, bokeh-drift;
-  animation-duration: 720ms, var(--bokeh-duration);
-  animation-delay: 0ms, 720ms;
+  animation-duration: 880ms, var(--bokeh-duration);
+  animation-delay: 0ms, 880ms;
   animation-direction: normal, alternate;
   animation-fill-mode: both, none;
   animation-iteration-count: 1, infinite;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
+}
+
+.bokeh-burst {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 34%, color-mix(in srgb, var(--bokeh-color), white 46%) 38%, transparent 48%),
+    radial-gradient(circle, color-mix(in srgb, var(--bokeh-color), transparent 30%) 0 18%, transparent 58%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0) scale(0.34);
+  animation: bokeh-burst 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  mix-blend-mode: screen;
+}
+
+.bokeh-burst::after {
+  position: absolute;
+  inset: 32%;
+  content: "";
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--bokeh-color), white 55%);
+  filter: blur(18px);
+  opacity: 0.5;
 }
 
 .memory-panel {
@@ -469,19 +502,42 @@ h1 {
 @keyframes bokeh-birth {
   0% {
     opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0.12);
-    filter: blur(22px) saturate(2.4);
+    transform: translate3d(-50%, -50%, 0) scale(0.04);
+    filter: blur(26px) saturate(2.6);
   }
 
-  62% {
+  34% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(0.52);
+  }
+
+  72% {
     opacity: 0.95;
-    transform: translate3d(-50%, -50%, 0) scale(1.18);
+    transform: translate3d(-50%, -50%, 0) scale(1.24);
   }
 
   100% {
     opacity: 0.86;
     transform: translate3d(-50%, -50%, 0) scale(1);
     filter: blur(14px) saturate(1.75);
+  }
+}
+
+@keyframes bokeh-burst {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.18);
+    filter: blur(2px) saturate(2.2);
+  }
+
+  22% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(2.15);
+    filter: blur(12px) saturate(1.6);
   }
 }
 

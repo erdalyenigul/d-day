@@ -84,6 +84,7 @@ const createLight = (index, overrides = {}) => {
 }
 
 const bokehLights = ref(Array.from({ length: 40 }, (_, index) => createLight(index)))
+const bokehBursts = ref([])
 
 const spawnLight = (parent) => {
   const index = bokehLights.value.length
@@ -95,6 +96,19 @@ const spawnLight = (parent) => {
   const driftAngle = Math.random() * Math.PI * 2
   const distanceA = 28 + Math.random() * 58
   const distanceB = 24 + Math.random() * 54
+  const burstId = `burst-${Date.now()}-${Math.random()}`
+
+  bokehBursts.value.push({
+    id: burstId,
+    x: parent.x,
+    y: parent.y,
+    size: parent.size,
+    color: parent.color,
+  })
+
+  window.setTimeout(() => {
+    bokehBursts.value = bokehBursts.value.filter((burst) => burst.id !== burstId)
+  }, 680)
 
   bokehLights.value.push(createLight(index, {
     id: `${index}-${Date.now()}`,
@@ -147,6 +161,19 @@ onUnmounted(() => {
           '--scatter-y': light.scatterY,
         }"
         @click.stop="spawnLight(light)"
+      ></span>
+
+      <span
+        v-for="burst in bokehBursts"
+        :key="burst.id"
+        class="bokeh-burst"
+        :style="{
+          left: burst.x,
+          top: burst.y,
+          width: burst.size,
+          height: burst.size,
+          '--bokeh-color': burst.color,
+        }"
       ></span>
     </div>
 
