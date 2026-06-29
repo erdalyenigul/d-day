@@ -116,7 +116,7 @@ select {
 .eyebrow {
   margin: 0 0 18px;
   color: rgba(248, 250, 252, 0.66);
-  font-size: 0.74rem;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -126,7 +126,7 @@ h1 {
   max-width: 620px;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(2rem, 3.4vw, 3.65rem);
+  font-size: 34px;
   font-weight: 780;
   line-height: 1.04;
   letter-spacing: 0;
@@ -243,7 +243,7 @@ h1 {
 .progress-note {
   margin-top: 14px;
   color: rgba(203, 213, 225, 0.58);
-  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  font-size: 20px;
   line-height: 1.55;
 }
 
@@ -456,7 +456,7 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(1.85rem, 8vw, 2.85rem);
+    font-size: 30px;
   }
 
   .time-value {

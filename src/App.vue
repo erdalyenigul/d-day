@@ -52,7 +52,7 @@ onUnmounted(() => {
     <section class="memory-panel" aria-labelledby="page-title">
       <div class="intro">
         <p class="eyebrow">D-DAY</p>
-        <h1 id="page-title">We are choosing us again.</h1>
+        <h1 id="page-title">the day you come home.</h1>
       </div>
 
       <div class="timer-grid" aria-label="Time remaining until homecoming">
@@ -77,7 +77,7 @@ onUnmounted(() => {
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
         <p class="progress-note">
-          the day you come home.
+          almost home.
         </p>
       </div>
 
