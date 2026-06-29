@@ -53,9 +53,6 @@ onUnmounted(() => {
       <div class="intro">
         <p class="eyebrow">D-DAY</p>
         <h1 id="page-title">We are choosing us again.</h1>
-        <p class="lead">
-          the day you come home.
-        </p>
       </div>
 
       <div class="timer-grid" aria-label="Time remaining until homecoming">
@@ -83,8 +80,6 @@ onUnmounted(() => {
           the day you come home.
         </p>
       </div>
-
-      <p class="closing-line">When this countdown ends, our forever begins.</p>
 
       <Transition name="modal">
         <div v-if="isComplete" class="arrival-overlay" aria-live="polite">

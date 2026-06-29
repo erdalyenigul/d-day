@@ -132,15 +132,6 @@ h1 {
   letter-spacing: 0;
 }
 
-.lead {
-  max-width: 640px;
-  margin: clamp(18px, 3vw, 28px) 0 0;
-  color: rgba(226, 232, 240, 0.72);
-  font-size: clamp(1rem, 1.7vw, 1.22rem);
-  font-weight: 450;
-  line-height: 1.7;
-}
-
 .timer-grid {
   display: grid;
   width: min(920px, 100%);
@@ -188,7 +179,6 @@ h1 {
 
 .date-line,
 .place-line,
-.closing-line,
 .progress-note {
   margin: 0;
 }
@@ -255,13 +245,6 @@ h1 {
   color: rgba(203, 213, 225, 0.58);
   font-size: clamp(0.82rem, 1.2vw, 0.95rem);
   line-height: 1.55;
-}
-
-.closing-line {
-  margin-top: clamp(28px, 4.4vw, 50px);
-  color: rgba(248, 250, 252, 0.68);
-  font-size: clamp(0.98rem, 1.7vw, 1.22rem);
-  font-style: italic;
 }
 
 .arrival-overlay {
@@ -474,10 +457,6 @@ h1 {
 
   h1 {
     font-size: clamp(1.85rem, 8vw, 2.85rem);
-  }
-
-  .lead {
-    line-height: 1.58;
   }
 
   .time-value {
