@@ -91,7 +91,7 @@ onUnmounted(() => {
           <div class="arrival-modal" role="dialog" aria-modal="true" aria-labelledby="arrival-title">
             <span class="heart" aria-hidden="true">❤️</span>
             <h2 id="arrival-title">Welcome Home</h2>
-            <p>Deniz is here. No more distance.</p>
+            <p>My Baby is here. No more distance.</p>
           </div>
         </div>
       </Transition>
