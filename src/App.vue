@@ -80,7 +80,7 @@ onUnmounted(() => {
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
         <p class="progress-note">
-          163 hours 52 minutes to 06.07.26 — the day you come home.
+          the day you come home.
         </p>
       </div>
 
