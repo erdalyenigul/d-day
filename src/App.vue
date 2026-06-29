@@ -76,8 +76,7 @@ onUnmounted(() => {
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
         <p class="progress-note">
-          This bar begins on 13 April 2026 and ends on 06 July 2026, the day of our
-          homecoming.
+          13.04.26 to 06.07.26 — the day you come home.
         </p>
       </div>
 
