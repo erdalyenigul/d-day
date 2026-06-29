@@ -67,7 +67,7 @@ onUnmounted(() => {
 
       <div class="reunion">
         <p class="date-line">06 July 2026 • 14:00</p>
-        <p class="place-line">İzmir Adnan Menderes Airport</p>
+        <p class="place-line">Airport Meet</p>
       </div>
 
       <div class="progress-wrap" aria-label="Countdown window progress">
