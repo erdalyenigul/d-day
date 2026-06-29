@@ -72,7 +72,7 @@ onUnmounted(() => {
 
       <div class="progress-wrap" aria-label="Countdown window progress">
         <div class="progress-meta">
-          <span>163h 52m before</span>
+          <span>Away</span>
           <span>{{ progressPercent }}</span>
           <span>Home</span>
         </div>
