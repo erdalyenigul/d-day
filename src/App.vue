@@ -20,9 +20,9 @@ const remaining = computed(() => {
 })
 
 const timeParts = computed(() => [
-  { label: 'Total hours', value: remaining.value.hours },
-  { label: 'Minutes', value: remaining.value.minutes },
-  { label: 'Seconds', value: remaining.value.seconds },
+  { label: 'TOTAL HOURS', value: remaining.value.hours },
+  { label: 'MINUTES', value: remaining.value.minutes },
+  { label: 'SECONDS', value: remaining.value.seconds },
 ])
 
 const isComplete = computed(() => remaining.value.totalSeconds === 0)
@@ -72,9 +72,9 @@ onUnmounted(() => {
 
       <div class="progress-wrap" aria-label="Countdown window progress">
         <div class="progress-meta">
-          <span>Away</span>
+          <span>AWAY</span>
           <span>{{ progressPercent }}</span>
-          <span>Home</span>
+          <span>HOME</span>
         </div>
         <div class="progress-track">
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
