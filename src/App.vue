@@ -49,7 +49,7 @@ onUnmounted(() => {
     <section class="memory-panel" aria-labelledby="page-title">
       <div class="intro">
         <p class="eyebrow">D-DAY</p>
-        <h1 id="page-title">Every hour brings me closer.</h1>
+        <h1 id="page-title">We are choosing us again.</h1>
         <p class="lead">
           Every hour since April 13 has carried us a little closer back to each other.
         </p>
