@@ -20,7 +20,7 @@ const remaining = computed(() => {
 })
 
 const timeParts = computed(() => [
-  { label: 'TOTAL HOURS', value: remaining.value.hours },
+  { label: 'HOURS', value: remaining.value.hours },
   { label: 'MINUTES', value: remaining.value.minutes },
   { label: 'SECONDS', value: remaining.value.seconds },
 ])
