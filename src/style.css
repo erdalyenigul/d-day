@@ -18,6 +18,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  touch-action: manipulation;
 }
 
 button,
@@ -34,6 +35,7 @@ select {
   place-items: center;
   overflow: hidden;
   padding: clamp(18px, 4vw, 56px);
+  touch-action: manipulation;
   background:
     radial-gradient(circle at 50% 18%, rgba(0, 175, 140, 0.12), transparent 36%),
     linear-gradient(180deg, #070908 0%, #020302 42%, #100604 76%, #030303 100%);
@@ -81,6 +83,7 @@ select {
   will-change: transform, opacity;
   cursor: pointer;
   outline: none;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
