@@ -1,8 +1,9 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
-const startDate = new Date('2026-04-13T00:00:00+03:00')
 const targetDate = new Date('2026-07-06T14:00:00+03:00')
+const progressWindowMs = (163 * 60 + 52) * 60 * 1000
+const startDate = new Date(targetDate.getTime() - progressWindowMs)
 const now = ref(new Date())
 let intervalId
 
@@ -32,6 +33,8 @@ const progress = computed(() => {
 
   return Math.min(Math.max((elapsed / total) * 100, 0), 100)
 })
+
+const progressPercent = computed(() => `${progress.value.toFixed(1)}%`)
 
 onMounted(() => {
   intervalId = window.setInterval(() => {
@@ -67,16 +70,17 @@ onUnmounted(() => {
         <p class="place-line">İzmir Adnan Menderes Airport</p>
       </div>
 
-      <div class="progress-wrap" aria-label="April 13 to homecoming progress">
+      <div class="progress-wrap" aria-label="Countdown window progress">
         <div class="progress-meta">
-          <span>13 Apr 2026</span>
-          <span>Homecoming</span>
+          <span>163h 52m before</span>
+          <span>{{ progressPercent }}</span>
+          <span>Home</span>
         </div>
         <div class="progress-track">
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
         <p class="progress-note">
-          13.04.26 to 06.07.26 — the day you come home.
+          163 hours 52 minutes to 06.07.26 — the day you come home.
         </p>
       </div>
 
