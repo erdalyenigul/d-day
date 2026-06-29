@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
+const startDate = new Date('2026-04-13T00:00:00+03:00')
 const targetDate = new Date('2026-07-06T14:00:00+03:00')
 const now = ref(new Date())
 let intervalId
@@ -18,27 +19,17 @@ const remaining = computed(() => {
 })
 
 const timeParts = computed(() => [
-  { label: 'Saat', value: remaining.value.hours },
-  { label: 'Dakika', value: remaining.value.minutes },
-  { label: 'Saniye', value: remaining.value.seconds },
+  { label: 'Total hours', value: remaining.value.hours },
+  { label: 'Minutes', value: remaining.value.minutes },
+  { label: 'Seconds', value: remaining.value.seconds },
 ])
 
 const progress = computed(() => {
-  const startDate = new Date('2026-06-29T00:00:00+03:00')
   const total = targetDate.getTime() - startDate.getTime()
   const elapsed = now.value.getTime() - startDate.getTime()
 
   return Math.min(Math.max((elapsed / total) * 100, 0), 100)
 })
-
-const targetLabel = new Intl.DateTimeFormat('tr-TR', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  timeZone: 'Europe/Istanbul',
-}).format(targetDate)
 
 onMounted(() => {
   intervalId = window.setInterval(() => {
@@ -53,39 +44,55 @@ onUnmounted(() => {
 
 <template>
   <main class="page-shell">
-    <section class="countdown-panel" aria-labelledby="page-title">
-      <div class="status-row">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>Canlı geri sayım</span>
-      </div>
-
-      <div class="headline">
-        <p class="eyebrow">D-Day</p>
-        <h1 id="page-title">6 Temmuz 14:00</h1>
-        <p class="target-date">{{ targetLabel }} · Türkiye saati</p>
-      </div>
-
-      <div v-if="remaining.totalSeconds > 0" class="timer-grid">
-        <article v-for="part in timeParts" :key="part.label" class="time-card">
-          <span class="time-value">{{ String(part.value).padStart(2, '0') }}</span>
-          <span class="time-label">{{ part.label }}</span>
-        </article>
-      </div>
-
-      <div v-else class="completed-state">
-        <span class="completed-value">00:00:00</span>
-        <span class="completed-label">Zaman geldi.</span>
-      </div>
-
-      <div class="progress-wrap" aria-label="Geri sayım ilerlemesi">
-        <div class="progress-meta">
-          <span>Bugunden hedefe</span>
-          <span>{{ Math.round(progress) }}%</span>
+    <Transition name="cinematic" mode="out-in">
+      <section
+        v-if="remaining.totalSeconds > 0"
+        key="countdown"
+        class="memory-panel"
+        aria-labelledby="page-title"
+      >
+        <div class="intro">
+          <p class="eyebrow">D-DAY</p>
+          <h1 id="page-title">Every hour brings me closer.</h1>
+          <p class="lead">
+            13 Nisan'dan beri geçen her saat, bizi yeniden birbirimize biraz daha
+            yaklaştırıyor.
+          </p>
         </div>
-        <div class="progress-track">
-          <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
+
+        <div class="timer-grid" aria-label="Deniz'e kavuşmaya kalan süre">
+          <article v-for="part in timeParts" :key="part.label" class="time-card">
+            <span class="time-value">{{ String(part.value).padStart(2, '0') }}</span>
+            <span class="time-label">{{ part.label }}</span>
+          </article>
         </div>
-      </div>
-    </section>
+
+        <div class="reunion">
+          <p class="date-line">06 July 2026 • 14:00</p>
+          <p class="place-line">İzmir Adnan Menderes Airport</p>
+        </div>
+
+        <div class="progress-wrap" aria-label="Today to reunion progress">
+          <div class="progress-meta">
+            <span>Today</span>
+            <span>Reunion</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
+          </div>
+        </div>
+
+        <p class="closing-line">When this countdown ends, our forever begins.</p>
+      </section>
+
+      <section v-else key="completed" class="memory-panel completed-state" aria-live="polite">
+        <div class="completed-glow" aria-hidden="true"></div>
+        <div class="completed-copy">
+          <p class="eyebrow">D-DAY</p>
+          <h1>Welcome home, Deniz.</h1>
+          <p>No more distance. Our forever starts now.</p>
+        </div>
+      </section>
+    </Transition>
   </main>
 </template>
