@@ -205,7 +205,7 @@ onUnmounted(() => {
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
         <p class="progress-note">
-          One Love, Again.
+          Tap a Color, Add More Love.
         </p>
       </div>
 
