@@ -28,6 +28,10 @@ select {
   font: inherit;
 }
 
+button {
+  color: inherit;
+}
+
 .page-shell {
   position: relative;
   display: grid;
@@ -287,11 +291,64 @@ h1 {
   transition: width 400ms ease;
 }
 
+.progress-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .progress-note {
-  margin-top: 14px;
   color: rgba(203, 213, 225, 0.58);
-  font-size: 20px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.refresh-button {
+  position: relative;
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.66);
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.refresh-button::before {
+  position: absolute;
+  inset: 4px;
+  content: "";
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.08);
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.refresh-button svg {
+  position: relative;
+  z-index: 1;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+}
+
+.refresh-button:active::before {
+  background: rgba(255, 255, 255, 0.14);
+  transform: scale(0.92);
 }
 
 .arrival-overlay {

@@ -131,6 +131,10 @@ const handleLightPress = (event, light) => {
   spawnLight(light)
 }
 
+const refreshPage = () => {
+  window.location.reload()
+}
+
 onMounted(() => {
   intervalId = window.setInterval(() => {
     now.value = new Date()
@@ -213,9 +217,17 @@ onUnmounted(() => {
         <div class="progress-track">
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
-        <p class="progress-note">
-          Tap a Color, Add More Love.
-        </p>
+        <div class="progress-actions">
+          <p class="progress-note">
+            Tap a Color, Add More Love.
+          </p>
+          <button class="refresh-button" type="button" aria-label="Refresh page" @click="refreshPage">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+              <path d="M21 3v6h-6" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <Transition name="modal">
