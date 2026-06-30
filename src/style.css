@@ -61,7 +61,8 @@ select {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
 .bokeh-light {
@@ -85,6 +86,8 @@ select {
   outline: none;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 

@@ -126,6 +126,11 @@ const spawnLight = (parent) => {
   }))
 }
 
+const handleLightPress = (event, light) => {
+  event.preventDefault()
+  spawnLight(light)
+}
+
 onMounted(() => {
   intervalId = window.setInterval(() => {
     now.value = new Date()
@@ -160,7 +165,11 @@ onUnmounted(() => {
           '--scatter-x': light.scatterX,
           '--scatter-y': light.scatterY,
         }"
-        @click.stop="spawnLight(light)"
+        role="button"
+        tabindex="0"
+        @pointerdown.stop="handleLightPress($event, light)"
+        @keydown.enter.prevent="spawnLight(light)"
+        @keydown.space.prevent="spawnLight(light)"
       ></span>
 
       <span
